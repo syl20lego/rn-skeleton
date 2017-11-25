@@ -100,8 +100,7 @@ React Native doesn't allow you to have anything other then alphanum chararcters 
 Finaly this is the first version of react native 0.50 that doesn't generate the index.android.js and index.ios.js. We can start editing the App.js directly. I want my files to be under /src rather then /app since there is alreay an app.json and an App.js.
 
 Change your App.js
-<script src="https://gist.github.com/syl20lego/4a19ac0ec90cab66cc3811d071864f26.js"></script>
-
+{% gist 4a19ac0ec90cab66cc3811d071864f26 %}
 
 # References
 
