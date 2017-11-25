@@ -37,7 +37,8 @@ const Tabs = TabNavigator(
         swipeEnabled: true,
         animationEnabled: true,
         tabBarOptions: css.tabs.container
-    });
+    }
+);
 
 export default Navigator = StackNavigator(
     {
@@ -45,4 +46,5 @@ export default Navigator = StackNavigator(
             screen: Tabs
         }
 
-    }, {headerMode: 'none'});
+    }, {headerMode: 'none'}
+);

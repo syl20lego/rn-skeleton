@@ -122,7 +122,10 @@ Finaly this is the first version of react native 0.50 that doesn't generate the 
 
 ## Redux, Persist, Saga and the redux store
 
-In our ```App.js``` the store and the persistor are coming from our store component, Application is our own application component.
+In our application the store and the persistor are coming from our store component, Application is our own application component.
+
+```App.js``` 
+
 ```Javascript
 <Provider store={store}>
     <PersistGate
@@ -134,7 +137,9 @@ In our ```App.js``` the store and the persistor are coming from our store compon
 </Provider>
 ```
 
-In our ```store/index.js```
+We setup the store
+
+```store/index.js```
 ```Javascript
 const config = {
     key: 'root',
@@ -152,7 +157,9 @@ sagaMiddleware.run(saga);
 return {persistor, store};
 ```
 
-In our ```reducers/index.js``` we export the root reducer, but we keep each implementation inside their own reducer.
+In our reducers, we export the root reducer, but we keep each implementation inside their own reducer.
+
+```reducers/index.js```
 ```Javascript
 import navigator from './navigation.reducer';
 import users from './users.reducer';
@@ -165,7 +172,10 @@ const rootReducer = {
 export default rootReducer;
 ```
 
-Similar in our ```sagas/index.js``` we iterate and fork each implementation.
+Similar in we iterate and fork each implementation.
+
+```sagas/index.js``` 
+
 ```Javascript
 import {fork} from 'redux-saga/effects';
 import users from './users.saga';
@@ -178,6 +188,123 @@ export default function* root() {
     yield sagas.map(saga => fork(saga));
 }
 ```
+
+## React navigation and redux
+
+Our application  is returning our root stack navigator
+
+```src/index.js```
+```Javascript
+    render() {
+        const { dispatch, navigator } = this.props;
+        return (
+            <Navigator
+                navigation={
+                    addNavigationHelpers({
+                        dispatch,
+                        state: navigator
+                    })
+                }
+            />
+        )
+    }
+}
+
+const mapStateToProps = state => ({
+    navigator: state.navigator,
+});
+
+export default Application = connect(mapStateToProps)(AppWithNavigation);
+
+```
+
+Navigation reducer 
+
+```reducer/navigation.reducer.js```
+
+```Javascript
+import { NavigationActions } from 'react-navigation';
+
+import Navigator  from '../routes';
+
+const initialState = Navigator.router.getStateForAction(NavigationActions.init);
+
+export default (state = initialState, action) => {
+    const nextState = Navigator.router.getStateForAction(action, state);
+    return nextState || state;
+};
+```
+
+Our application is using Tab navigation, therefor our Root navigator setup the tabs. We need headerMode to ensure we don't show another navigation bar.
+
+```routes/index.js```
+
+```Javascript
+export default Navigator = StackNavigator(
+    {
+        Tabs: {
+            screen: Tabs
+        }
+
+    }, {headerMode: 'none'}
+);
+```
+
+We setup 2 tabs
+
+```routes/index.js```
+
+```Javascript
+const Tabs = TabNavigator(
+    {
+        HomeTab: {
+            screen: HomeStack,
+
+        },
+        InfoTab: {
+            screen: InfoStack,
+
+        }
+    }, {
+
+    }
+);
+```
+
+To keep things clean, each tabs in contained in a separated file.
+
+```routes/home.route.js```
+
+```Javascript
+export default HomeRoute = {
+    Home: {
+        screen: HomeScreen,
+        navigationOptions: ({navigation}) => ({
+            ...tabs.item,
+            title: 'Home',
+            header: (Platform.OS === 'android') ? null : navigation.header,
+        })
+    },
+    Details: {
+        screen: DetailsScreen,
+        navigationOptions: ({navigation}) => ({
+            ...tabs.item,
+            title: 'Details'
+        })
+    }
+};
+```
+
+We can use destructing to reassemble the navigation stack.
+
+```routes/index.js```
+
+```Javascript
+export const HomeStack = StackNavigator({
+    ...HomeRoute
+});
+```
+
 
 # References
 
