@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware from 'redux-saga'
 
 import reducer from '../reducers'
-import saga from '../saga'
+import saga from '../sagas'
 
 // middleware that logs actions
 const loggerMiddleware = createLogger({predicate: (getState, action) => __DEV__});

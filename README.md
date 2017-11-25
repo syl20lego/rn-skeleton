@@ -120,8 +120,64 @@ React Native doesn't allow you to have anything other then alphanum chararcters 
 
 Finaly this is the first version of react native 0.50 that doesn't generate the index.android.js and index.ios.js. We can start editing the App.js directly. I want my files to be under /src rather then /app since there is alreay an app.json and an App.js.
 
+## Redux, Persist, Saga and the redux store
 
-...
+In our ```App.js``` the store and the persistor are coming from our store component, Application is our own application component.
+```Javascript
+<Provider store={store}>
+    <PersistGate
+        loading={<ActivityIndicator/>}
+        onBeforeLift={onBeforeLift}
+        persistor={persistor}>
+        <Application/>
+    </PersistGate>
+</Provider>
+```
+
+In our ```store/index.js```
+```Javascript
+const config = {
+    key: 'root',
+    storage,
+};
+const enhancers =
+    [applyMiddleware(
+        loggerMiddleware,
+        sagaMiddleware
+    )];
+const persistConfig = {enhancers};
+const store = createStore(persistCombineReducers(config, reducer), initialState, compose(...enhancers));
+const persistor = persistStore(store, persistConfig);
+sagaMiddleware.run(saga);
+return {persistor, store};
+```
+
+In our ```reducers/index.js``` we export the root reducer, but we keep each implementation inside their own reducer.
+```Javascript
+import navigator from './navigation.reducer';
+import users from './users.reducer';
+
+const rootReducer = {
+    navigator,
+    users
+};
+
+export default rootReducer;
+```
+
+Similar in our ```sagas/index.js``` we iterate and fork each implementation.
+```Javascript
+import {fork} from 'redux-saga/effects';
+import users from './users.saga';
+
+const sagas = [
+    ...users
+];
+
+export default function* root() {
+    yield sagas.map(saga => fork(saga));
+}
+```
 
 # References
 
