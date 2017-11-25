@@ -8,8 +8,9 @@ React native skeleton project for
 * React Navigation
 * Redux-Saga
 
+# Application 
 ![Overview](./documentation/ScreenShot.png)
-
+* Inspired by Spencer Carli tutorial
 
 # Step by step installation guide
 
@@ -65,6 +66,26 @@ react-native link
 ```Bash
 react-native link
 ```
+### Testing
+
+
+```Bash
+npm install --save-dev jest babel-jest babel-preset-es2015 babel-preset-react react-test-renderer
+npm install --save-dev jest-cli
+npm install --save-dev nock
+npm install --save-dev enzyme
+npm install --save-dev enzyme-adapter-react-16
+npm install --save-dev react-dom
+```
+
+### Running Jest
+```Bash
+npm install -g jest
+```
+
+```Bash
+jest --watch
+```
 
 ## Runing Simulators
 ### iOS
@@ -100,19 +121,22 @@ React Native doesn't allow you to have anything other then alphanum chararcters 
 Finaly this is the first version of react native 0.50 that doesn't generate the index.android.js and index.ios.js. We can start editing the App.js directly. I want my files to be under /src rather then /app since there is alreay an app.json and an App.js.
 
 
+...
+
 # References
 
 [Expo demonstrating how to build my app Capo Keys from scratch to deployment](https://www.youtube.com/playlist?list=PL06z42zB6YZ-9CQDX015uaeqMcSErKbes)
-* Thanks to Barry Michael Doyle for this excellent tutorial to develop an application from begining to the end using Expo and Redus. Very good explanations on everything he is doing
+* Thanks to Barry Michael Doyle for this excellent tutorial about developing an application from begining to the end using Expo and Redus. Very good explanations and enjoyable to watch
 
 [Simple React Native application with Redux](https://www.youtube.com/watch?v=3msLwu25SQY&list=PLk083BmAphjtGWyZUuo1BiCS_ZAgps6j5)
-* Thanks to Jon Lebensold that provided me with the basic skeleton for redux, `createReducer.js` is interesting to simplify the reducer switch case. I haven't use it yet since it makes the reducers pattern looking different.
+* Thanks to Jon Lebensold that provided me with the basic skeleton for redux. `createReducer.js` is interesting to simplify the reducer switch case. I haven't use it yet since it makes the reducers pattern looking different.
 
 [FlatList and random user api](https://www.youtube.com/watch?v=r-ENJLGrd3s)
 * Thanks to Spencer Carli to giving the UX idea and api as well as the good explanation how to setup FlatList
 
 [What is the right way to do asynchronous operations in Redux?](https://decembersoft.com/posts/what-is-the-right-way-to-do-asynchronous-operations-in-redux/)
 * Provides good overview of different solutions for asynchronous framework working with redux. In the end, I select redux-sagas since I like keeping my actions being plain object and reducers simple and only handling states
+
 # Environment
 
 macOS Sierra
