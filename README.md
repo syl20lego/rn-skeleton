@@ -160,6 +160,7 @@ return {persistor, store};
 In our reducers, we export the root reducer, but we keep each implementation inside their own reducer.
 
 ```reducers/index.js```
+
 ```Javascript
 import navigator from './navigation.reducer';
 import users from './users.reducer';
@@ -187,6 +188,47 @@ const sagas = [
 export default function* root() {
     yield sagas.map(saga => fork(saga));
 }
+```
+
+Each saga can export a list of saga generators
+
+```sagas/user.saga.js``` 
+
+```Javascript
+function* fetchUsersSaga() {
+    yield takeEvery(FETCH_USERS, fetchUsersEffect)
+}
+
+
+export default [fetchUsersSaga];
+```
+
+We destructure all actions in a common action creator
+
+```actions/index.js``` 
+
+```Javascript
+import * as Users from './users.action';
+
+export const ActionCreators = {
+    ...Users
+};
+```
+
+Our action creator can be simple objects.
+
+```actions/users.action.js``` 
+
+```Javascript
+export const fetchUsers = (page, seed) => {
+    return {
+        type: FETCH_USERS,
+        data: {
+            page,
+            seed
+        }
+    };
+};
 ```
 
 ## React navigation and redux
@@ -235,7 +277,7 @@ export default (state = initialState, action) => {
 };
 ```
 
-Our application is using Tab navigation, therefor our Root navigator setup the tabs. We need headerMode to ensure we don't show another navigation bar.
+Our application is using Tab navigation, therefore our Root navigator setup the tabs. We need headerMode to ensure we don't show another navigation bar.
 
 ```routes/index.js```
 
