@@ -365,6 +365,30 @@ export const HomeStack = StackNavigator({
 [What is the right way to do asynchronous operations in Redux?](https://decembersoft.com/posts/what-is-the-right-way-to-do-asynchronous-operations-in-redux/)
 * Provides good overview of different solutions for asynchronous framework working with redux. In the end, I select redux-sagas since I like keeping my actions being plain object and reducers simple and only handling states
 
+[Adding custom Fonts](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e)
+
+# Links
+
+
+## Framework
+
+[React component](https://facebook.github.io/react-native/docs/components-and-apis.html)
+
+[React Native Elements Cross Platform React Native UI Toolkit ](https://react-native-training.github.io/react-native-elements/)
+
+## Test
+
+[Jest Expect](https://facebook.github.io/jest/docs/en/expect.html#content)
+
+[Enzyme Shallow](http://airbnb.io/enzyme/docs/api/ShallowWrapper/shallow.html)
+
+[HTTP mocking and expectations library](https://github.com/node-nock/nock)
+
+## Tutorial
+
+[Learning React Native](http://www.reactnativeexpress.com/)
+
+
 # Environment
 
 macOS Sierra
