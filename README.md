@@ -1,5 +1,5 @@
 # rn-skeleton
-I had some trouble finding example for integrating keys frameworks all together, but never example how everything would work together. There are probably other ways feel free to leave comments or suggestions.
+I had some trouble finding example for integrating keys frameworks all together, it is easy to find on a specific topic but never how everything would work together. There are probably other ways to do this but feel free to leave comments or suggestions.
 
 React native skeleton project for
 * React Native
@@ -19,7 +19,7 @@ I'll try to show all the commands you need to run to create your own project if 
 [Building Projects with Native Code](https://facebook.github.io/react-native/docs/getting-started.html)
 
 
-## Shell tools
+## Command line tools
 ```Bash
 npm install -g create-react-native-app
 npm install -g react-native-cli
@@ -27,6 +27,8 @@ npm install -g react-native-git-upgrade
 ```
 
 ## Init
+
+Create your own project.
 
 ```Bash
 react-native init RNskeleton
@@ -66,7 +68,7 @@ react-native link
 ```Bash
 react-native link
 ```
-### Testing
+## Testing
 
 
 ```Bash
@@ -78,7 +80,7 @@ npm install --save-dev enzyme-adapter-react-16
 npm install --save-dev react-dom
 ```
 
-### Running Jest
+## Running Jest
 ```Bash
 npm install -g jest
 ```
@@ -88,6 +90,7 @@ jest --watch
 ```
 
 ## Runing Simulators
+
 ### iOS
 ```
 react-native run-ios
