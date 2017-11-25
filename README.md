@@ -8,7 +8,7 @@ React native skeleton project for
 * React Navigation
 * Redux-Saga
 
-![Overview](./documentation/ScreenShot.phg)
+![Overview](./documentation/ScreenShot.png)
 
 
 # Step by step installation guide
