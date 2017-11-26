@@ -1,5 +1,3 @@
-// https://github.com/r3bl-alliance/react-native-weather/blob/f877f53f8038295401
-// d4934fa8e2d7db79a4625c/app/Styles.js
 import React from "react";
 import {StyleSheet} from "react-native";
 
@@ -52,8 +50,6 @@ export const values = {
     border_radius: 5
 };
 
-
-// more info https://goo.gl/eawcVg
 export const tabs = {
     container: {
         // text

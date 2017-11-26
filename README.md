@@ -130,7 +130,7 @@ In our application the store and the persistor are coming from our store compone
 
 Application is our own application component.
 
-```App.js``` 
+`App.js`
 
 ```Javascript
 <Provider store={store}>
@@ -145,7 +145,7 @@ Application is our own application component.
 
 We setup the store
 
-```store/index.js```
+`store/index.js`
 
 ```Javascript
 const config = {
@@ -166,7 +166,7 @@ return {persistor, store};
 
 In our reducers, we export the root reducer, but we keep each implementation inside their own reducer.
 
-```reducers/index.js```
+`reducers/index.js`
 
 ```Javascript
 import navigator from './navigation.reducer';
@@ -183,7 +183,7 @@ export default rootReducer;
 Similar in our sagas we iterate and fork each implementation.
 [Thanks to Jamie Sunderland proposal](https://github.com/redux-saga/redux-saga/issues/178)
 
-```sagas/index.js``` 
+`sagas/index.js`
 
 ```Javascript
 import {fork} from 'redux-saga/effects';
@@ -200,7 +200,7 @@ export default function* root() {
 
 Each saga can export a list of saga generators
 
-```sagas/user.saga.js``` 
+`sagas/user.saga.js`
 
 ```Javascript
 function* fetchUsersSaga() {
@@ -213,7 +213,7 @@ export default [fetchUsersSaga];
 
 We javascript destructing for all actions in a common action creator
 
-```actions/index.js``` 
+`actions/index.js` 
 
 ```Javascript
 import * as Users from './users.action';
@@ -225,7 +225,7 @@ export const ActionCreators = {
 
 Since we are using saga, our action creator can be simple objects.
 
-```actions/users.action.js``` 
+`actions/users.action.js` 
 
 ```Javascript
 export const fetchUsers = (page, seed) => {
@@ -244,7 +244,8 @@ export const fetchUsers = (page, seed) => {
 Our application is returning our root stack navigator, this is similar to 
 [React Navigation with Redux Integration](https://reactnavigation.org/docs/guides/redux)
 
-```src/index.js```
+`src/index.js`
+
 ```Javascript
     render() {
         const { dispatch, navigator } = this.props;
@@ -271,7 +272,7 @@ export default Application = connect(mapStateToProps)(AppWithNavigation);
 
 Navigation reducer 
 
-```reducer/navigation.reducer.js```
+`reducer/navigation.reducer.js`
 
 ```Javascript
 import { NavigationActions } from 'react-navigation';
@@ -288,7 +289,7 @@ export default (state = initialState, action) => {
 
 Our application is using Tab navigation, therefore our Root navigator setup the tabs. We need headerMode to ensure we don't show another navigation bar.
 
-```routes/index.js```
+`routes/index.js`
 
 ```Javascript
 export default Navigator = StackNavigator(
@@ -303,7 +304,7 @@ export default Navigator = StackNavigator(
 
 We setup 2 tabs
 
-```routes/index.js```
+`routes/index.js`
 
 ```Javascript
 const Tabs = TabNavigator(
@@ -324,7 +325,7 @@ const Tabs = TabNavigator(
 
 To keep things clean, each tabs in contained in a separated file.
 
-```routes/home.route.js```
+`routes/home.route.js`
 
 ```Javascript
 export default HomeRoute = {
@@ -348,13 +349,21 @@ export default HomeRoute = {
 
 We can use destructing to reassemble the navigation stack.
 
-```routes/index.js```
+`routes/index.js`
 
 ```Javascript
 export const HomeStack = StackNavigator({
     ...HomeRoute
 });
 ```
+
+## Styles
+
+I like the idea of centralized styles for common component as well as colors scheme and fonts. I was inspired by 
+[react-native-weather](https://github.com/r3bl-alliance/react-native-weather)
+
+I' still not sure what should be common, I find having flex instructions and margin a bit cumbersome and they are
+probably better with the component.
 
 ## Testing
 
@@ -363,7 +372,7 @@ export const HomeStack = StackNavigator({
 
 Actions are really easy to test, you just need to ensure they provide the correct object.
 
-```actions/__tests__/users.actions.spec.js```
+`actions/__tests__/users.actions.spec.js`
 
 ```Javascript
 it('Should create an action to fetch users', () => {
@@ -383,7 +392,7 @@ it('Should create an action to fetch users', () => {
 You can test javascript function, I like to use Nock for API testing
 [HTTP mocking and expectations library](https://github.com/node-nock/nock)
 
-```api/__tests__/users.api.spec.js```
+`api/__tests__/users.api.spec.js`
 
 ```Javascript
 it('API works correctly to fetch users', (done) => {
@@ -411,7 +420,7 @@ it('API works correctly to fetch users', (done) => {
 Because the reducers are simply managing states, they are easy to test and you just need to ensure they are 
 creating the proper state given any actions
 
-```reducers/__tests__/users.reducers.spec.js```
+`reducers/__tests__/users.reducers.spec.js`
 
 ```Javascript
 it('should return the initial state', () => {
@@ -428,6 +437,14 @@ it('should return the initial state', () => {
     )
 });
 ```
+Todo: React Component unit testing
+
+## Integration test
+
+`App.spec.js` is an integration test, I haven't put much work into it yet, I found testing UX high maintenance.
+
+Should we have redux integration testing instead ? Testing actions/reducers/sagas would be an option instead of UX testing. 
+
 
 # References
 
