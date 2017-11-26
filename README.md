@@ -356,6 +356,78 @@ export const HomeStack = StackNavigator({
 });
 ```
 
+## Testing
+
+
+### Unit testing
+
+Actions are really easy to test, you just need to ensure they provide the correct object.
+
+```actions/__tests__/users.actions.spec.js```
+
+```Javascript
+it('Should create an action to fetch users', () => {
+    const page = 3;
+    const seed = 'ABC';
+    const expectedAction = {
+        type: types.FETCH_USERS,
+        data: {
+            page,
+            seed
+        }
+    };
+    expect(ActionCreators.fetchUsers(page, seed)).toEqual(expectedAction)
+});
+```
+
+You can test javascript function, I like to use Nock for API testing
+[HTTP mocking and expectations library](https://github.com/node-nock/nock)
+
+```api/__tests__/users.api.spec.js```
+
+```Javascript
+it('API works correctly to fetch users', (done) => {
+    let seed = 22;
+    let page = 1;
+    nock('https://randomuser.me', {})
+        .get(`/api/?seed=${seed}&page=${page}&results=20`)
+        .reply(200, `
+    {"results": [{
+        "name": {
+        "first": "nicholas"
+        }
+    }]}`);
+    fetchUsers({seed, page})
+        .then((result) => {
+            expect(result.error).toBeNull();
+            expect(result.list).toHaveLength(1);
+            expect(result.list[0].name.first).toBe('nicholas');
+        })
+        .then(done)
+        .catch(done)
+});
+```
+
+Because the reducers are simply managing states, they are easy to test and you just need to ensure they are 
+creating the proper state given any actions
+
+```reducers/__tests__/users.reducers.spec.js```
+
+```Javascript
+it('should return the initial state', () => {
+    console.log('REDUCERS HERE !!!!', reducers.users);
+    expect(reducers.users(undefined, {})).toEqual(
+        {
+            "error": null,
+            "list": [],
+            "loading": false,
+            "page": 1,
+            "refreshing": false,
+            "seed": 1
+        }
+    )
+});
+```
 
 # References
 
