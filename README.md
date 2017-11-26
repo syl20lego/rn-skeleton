@@ -125,7 +125,10 @@ Finaly this is the first version of react native 0.50 that doesn't generate the 
 
 ## Redux, Persist, Saga and the redux store
 
-In our application the store and the persistor are coming from our store component, Application is our own application component.
+In our application the store and the persistor are coming from our store component, it is pretty much same as
+[PersistGate example usage](https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md)
+
+Application is our own application component.
 
 ```App.js``` 
 
@@ -143,6 +146,7 @@ In our application the store and the persistor are coming from our store compone
 We setup the store
 
 ```store/index.js```
+
 ```Javascript
 const config = {
     key: 'root',
@@ -176,7 +180,8 @@ const rootReducer = {
 export default rootReducer;
 ```
 
-Similar in we iterate and fork each implementation.
+Similar in our sagas we iterate and fork each implementation.
+[Thanks to Jamie Sunderland proposal](https://github.com/redux-saga/redux-saga/issues/178)
 
 ```sagas/index.js``` 
 
@@ -206,7 +211,7 @@ function* fetchUsersSaga() {
 export default [fetchUsersSaga];
 ```
 
-We destructure all actions in a common action creator
+We javascript destructing for all actions in a common action creator
 
 ```actions/index.js``` 
 
@@ -218,7 +223,7 @@ export const ActionCreators = {
 };
 ```
 
-Our action creator can be simple objects.
+Since we are using saga, our action creator can be simple objects.
 
 ```actions/users.action.js``` 
 
@@ -236,7 +241,8 @@ export const fetchUsers = (page, seed) => {
 
 ## React navigation and redux
 
-Our application  is returning our root stack navigator
+Our application is returning our root stack navigator, this is similar to 
+[React Navigation with Redux Integration](https://reactnavigation.org/docs/guides/redux)
 
 ```src/index.js```
 ```Javascript
@@ -369,12 +375,17 @@ export const HomeStack = StackNavigator({
 
 # Links
 
-
 ## Framework
 
 [React component](https://facebook.github.io/react-native/docs/components-and-apis.html)
 
 [React Native Elements Cross Platform React Native UI Toolkit ](https://react-native-training.github.io/react-native-elements/)
+
+[React-redux](https://github.com/reactjs/react-redux)
+
+[Redux-Persist](https://github.com/rt2zz/redux-persist)
+
+[React Navigation with Redux Integration](https://reactnavigation.org/docs/guides/redux)
 
 ## Test
 
