@@ -4,6 +4,7 @@ import {Icon} from 'react-native-elements';
 
 import HomeRoute from './home.route';
 import ProfileRoute from './profile.route';
+import SettingsRoute from './settings.route';
 import * as css from "../assets/styles";
 
 export const HomeStack = StackNavigator({
@@ -12,6 +13,10 @@ export const HomeStack = StackNavigator({
 
 const InfoStack = StackNavigator({
     ...ProfileRoute
+});
+
+export const SettingsStack = StackNavigator({
+    ...SettingsRoute
 });
 
 const Tabs = TabNavigator(
@@ -44,7 +49,12 @@ export default Navigator = StackNavigator(
     {
         Tabs: {
             screen: Tabs
+        },
+        Settings: {
+            screen: SettingsStack
         }
-
-    }, {headerMode: 'none'}
+    }, {
+        mode: 'modal',
+        headerMode: 'none'
+    }
 );

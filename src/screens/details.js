@@ -3,7 +3,7 @@ import {View, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {Card} from "react-native-elements";
 
-import * as css from '../../assets/styles';
+import * as css from '../assets/styles';
 
 class DetailsScreen extends Component {
     render() {
