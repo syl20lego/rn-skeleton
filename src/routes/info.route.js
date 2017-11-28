@@ -4,7 +4,7 @@ import InfoScreen from '../screens/info.screen';
 import {tabs} from "../assets/styles";
 
 export default InfoRoute = {
-    Profile: {
+    Info: {
         screen: InfoScreen,
         navigationOptions: ({navigation}) => ({
             ...tabs.item,

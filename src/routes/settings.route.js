@@ -5,7 +5,7 @@ import { NavigationActions } from 'react-navigation'
 import SettingsScreen from '../screens/settings.screen';
 import * as css from "../assets/styles";
 
-export default SettinsRoute = {
+export default SettingRoute = {
     Settings: {
         screen: SettingsScreen,
         navigationOptions: ({navigation}) => ({

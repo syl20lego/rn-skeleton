@@ -2,37 +2,31 @@ import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import {Icon} from 'react-native-elements';
 
-import HomeRoute from './home.route';
-import InfoRoute from './info.route';
-import SettingsRoute from './settings.route';
+import HomeStack from './home.stack';
+import InfoStack from './info.stack';
+import SettingsStack from './settings.stack';
 import * as css from "../assets/styles";
 
-export const HomeStack = StackNavigator({
-    ...HomeRoute
-});
 
-const InfoStack = StackNavigator({
-    ...InfoRoute
-});
-
-export const SettingsStack = StackNavigator({
-    ...SettingsRoute
-});
+const tabIcon = ({ focused, tintColor }, name) =>{
+    return <Icon name={name} size={25} color={tintColor}/>
+};
 
 const Tabs = TabNavigator(
+
     {
         HomeTab: {
             screen: HomeStack,
             navigationOptions: {
                 tabBarLabel: 'Home',
-                tabBarIcon: ({tintColor}) => <Icon name="list" size={25} color={tintColor}/>,
+                tabBarIcon: (state) => tabIcon(state, 'list'),
             }
         },
         InfoTab: {
             screen: InfoStack,
             navigationOptions: {
                 tabBarLabel: 'Info',
-                tabBarIcon: ({tintColor}) => <Icon name="account-circle" size={25} color={tintColor}/>
+                tabBarIcon: (state) => tabIcon(state, 'account-circle'),
             }
         }
     }, {
