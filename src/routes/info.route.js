@@ -1,11 +1,11 @@
 import {Platform} from 'react-native';
 
-import ProfileScreen from '../screens/profile';
+import InfoScreen from '../screens/info.screen';
 import {tabs} from "../assets/styles";
 
-export default ProfileRoute = {
+export default InfoRoute = {
     Profile: {
-        screen: ProfileScreen,
+        screen: InfoScreen,
         navigationOptions: ({navigation}) => ({
             ...tabs.item,
             title: 'Info',

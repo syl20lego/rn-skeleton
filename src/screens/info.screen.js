@@ -3,7 +3,7 @@ import {View } from 'react-native';
 
 import Button from '../components/button'
 
-class ProfileScreen extends Component {
+class InfoScreen extends Component {
     render() {
         return <View>
                 <Button
@@ -13,7 +13,7 @@ class ProfileScreen extends Component {
     }
 }
 
-ProfileScreen.propTypes = {
+InfoScreen.propTypes = {
 };
 
-export default ProfileScreen;
+export default InfoScreen;

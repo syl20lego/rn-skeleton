@@ -8,12 +8,11 @@ import * as css from '../assets/styles';
 class DetailsScreen extends Component {
     render() {
         const {params} = this.props.navigation.state;
-
         return <View style={[css.containers.screen, css.containers.default]}>
             <Card style={styles.card}
                 title={`${params.firstName} ${params.lastName}`}
                 image={{uri: params.picture}}>
-                <Text style={{marginBottom: 10}}>
+                <Text style={styles.email}>
                     {params.email}
                 </Text>
             </Card>
@@ -24,7 +23,9 @@ class DetailsScreen extends Component {
 const styles = StyleSheet.create({
     card: {
     },
-
+    email: {
+        marginBottom: 10
+    }
 });
 
 DetailsScreen.propTypes = {

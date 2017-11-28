@@ -72,6 +72,14 @@ export const tabs = {
     }
 };
 
+// Utility function to display frame around component for debugging
+export const displayFrame = (color) => {
+    return {
+        borderColor: color,
+        borderWidth: 4
+    }
+};
+
 export const text = StyleSheet.create({
     default: {
         ...fonts.body,

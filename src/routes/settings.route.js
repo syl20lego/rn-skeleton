@@ -1,15 +1,25 @@
-import {Platform} from 'react-native';
+import React from 'react';
+import {Icon} from 'react-native-elements';
+import { NavigationActions } from 'react-navigation'
 
-import SettingsScreen from '../screens/settings';
-import {tabs} from "../assets/styles";
+import SettingsScreen from '../screens/settings.screen';
+import * as css from "../assets/styles";
 
 export default SettinsRoute = {
-    Profile: {
+    Settings: {
         screen: SettingsScreen,
         navigationOptions: ({navigation}) => ({
-            ...tabs.item,
+            ...css.tabs.item,
             title: 'Info',
-            header: (Platform.OS === 'android') ? null : navigation.header,
+            headerRight: (
+                <Icon
+                    name='done'
+                    iconStyle={padding=5}
+                    color={css.colors.textPrimaryColor}
+                    underlayColor={css.colors.primaryDarkColor}
+                    onPress={() => navigation.dispatch(NavigationActions.back())}
+                />
+            )
         })
     }
 };

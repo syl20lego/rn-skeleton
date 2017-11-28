@@ -1,7 +1,7 @@
 import {Platform} from 'react-native';
 
-import HomeScreen from '../screens/home';
-import DetailsScreen from '../screens/details'
+import HomeScreen from '../screens/home.screen';
+import DetailsScreen from '../screens/details.screen'
 import {tabs} from "../assets/styles";
 
 export default HomeRoute = {
