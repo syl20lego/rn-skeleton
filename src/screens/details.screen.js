@@ -10,7 +10,7 @@ class DetailsScreen extends Component {
         const {params} = this.props.navigation.state;
         return <View style={[css.containers.screen, css.containers.default]}>
             <Card style={styles.card}
-                title={`${params.firstName} ${params.lastName}`}
+                title={params.displayName}
                 image={{uri: params.picture}}>
                 <Text style={styles.email}>
                     {params.email}
@@ -32,8 +32,7 @@ DetailsScreen.propTypes = {
     navigation: PropTypes.shape({
         state: PropTypes.shape({
             params: PropTypes.shape({
-                firstName: PropTypes.string.isRequired,
-                lastName: PropTypes.string.isRequired,
+                displayName: PropTypes.string.isRequired,
                 email: PropTypes.string.isRequired,
                 picture: PropTypes.string
             })

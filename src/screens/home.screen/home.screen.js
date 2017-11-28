@@ -30,16 +30,15 @@ class HomeScreen extends Component {
     renderItem = (item) => {
         return <ListItem
             roundAvatar
-            title={`${item.name.first} ${item.name.last}`}
+            title={item.displayName}
             subtitle={item.email}
-            avatar={{uri: item.picture.thumbnail}}
+            avatar={{uri: item.thumbnail}}
             containerStyle={{borderBottomWidth: 0}}
             button onPress={() => this.props.navigation.navigate('Details',
             {
-                firstName: item.name.first,
-                lastName: item.name.last,
+                displayName: item.displayName,
                 email: item.email,
-                picture: item.picture.large
+                picture: item.photo
             })}
         />
     };
