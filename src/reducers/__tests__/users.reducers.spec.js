@@ -2,7 +2,7 @@ import reducers from '../index'
 import * as types from '../../actions/type'
 
 describe('Testing Users reducer', () => {
-    describe('Testing fetch Users', () => {
+    describe('Testing FETCH_USERS', () => {
         it('should return the initial state', () => {
             console.log('REDUCERS HERE !!!!', reducers.users);
             expect(reducers.users(undefined, {})).toEqual(
@@ -68,9 +68,71 @@ describe('Testing Users reducer', () => {
             })
         });
     });
-    describe('Testing fetch success', () => {
-        it('should handle FETCH_USERS refreshing when different seed', () => {
-            //...
+    describe('Testing FETCH_USERS_SUCCESS', () => {
+        it('should overwrite list when on page 1', () => {
+            let state = reducers.users({page: 1, seed: 42, list: [{test: 0}]}, {
+                type: types.FETCH_USERS_SUCCESS,
+                data: {
+                    "list": [{test: 1}, {test:2}],
+                }
+            });
+            expect(state).toEqual({
+                list: [{test: 1}, {test:2}],
+                error: null,
+                "page": 1,
+                "loading": false,
+                "refreshing": false,
+                "seed": 42
+            })
         });
+        it('should append list when on another page ', () => {
+            let state = reducers.users({page: 2, seed: 42, list: [{test: 0}]}, {
+                type: types.FETCH_USERS_SUCCESS,
+                data: {
+                    "list": [{test: 1}, {test:2}],
+                }
+            });
+            expect(state).toEqual({
+                list: [{test: 0}, {test: 1}, {test:2}],
+                error: null,
+                "page": 2,
+                "loading": false,
+                "refreshing": false,
+                "seed": 42
+            })
+        });
+        it('should not change list when receiving no list', () => {
+            let state = reducers.users({page: 2, seed: 42, list: [{test: 0}]}, {
+                type: types.FETCH_USERS_SUCCESS,
+                data: {
+                }
+            });
+            expect(state).toEqual({
+                list: [{test: 0}],
+                error: null,
+                "page": 2,
+                "loading": false,
+                "refreshing": false,
+                "seed": 42
+            })
+        });
+    });
+    describe('Testing FETCH_USERS_FAILURE', () => {
+        it('should set error and stop loading and refresh', () => {
+            let state = reducers.users({page: 1, seed: 42, list: [{test: 0}]}, {
+                type: types.FETCH_USERS_FAILURE,
+                error: 'this is a error'
+            });
+            expect(state).toEqual({
+                list: [{test: 0}],
+                error: 'this is a error',
+                "page": 1,
+                "loading": false,
+                "refreshing": false,
+                "seed": 42
+            })
+        });
+
+
     });
 });

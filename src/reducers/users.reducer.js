@@ -21,7 +21,7 @@ export default reducer = (state = defaultState, action) => {
                 refreshing: state.seed !== seed
             };
         case FETCH_USERS_SUCCESS:
-            const {list} = action.data;
+            const {list=[]} = action.data;
             return {
                 ...state,
                 list : state.page === 1 ? list : [...state.list, ...list],
