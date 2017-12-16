@@ -108,6 +108,18 @@ Reload RN
 adb shell input text "RR"
 ```
 
+```
+npm -g i @storybook/cli
+```
+
+```
+getstorybook
+```
+
+```
+yarn run storybook 
+```
+
 # Architecture
 
 From the application creation there are few choice to be made, I'll try to explains my decisions or sometime just use the defacto.
