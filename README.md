@@ -377,6 +377,11 @@ I like the idea of centralized styles for common component as well as colors sch
 I' still not sure what should be common, I find having flex instructions and margin a bit cumbersome and they are
 probably better with the component.
 
+## Storybook
+
+http://localhost:7007/
+
+
 ## Testing
 
 
