@@ -44,7 +44,7 @@ class HomeScreen extends Component {
     };
 
     renderFooter = () => {
-        if (this.props.loading)
+        if (!this.props.loading)
             return null;
 
         return (
@@ -57,7 +57,7 @@ class HomeScreen extends Component {
     render() {
         return (
             <List
-                containerStyle={[css.containers.screen, css.containers.list]}>
+                containerStyle={[css.scrollView.default,css.containers.screen, css.containers.list]}>
                 <FlatList
                     data={this.props.list}
                     renderItem={({item}) => this.renderItem(item)}

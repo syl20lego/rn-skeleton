@@ -1,5 +1,5 @@
-import {ActionCreators} from '../index'
-import * as types from '../type'
+import {ActionCreators} from '../../../src/actions/index'
+import * as types from '../../../src/actions/type'
 
 describe('Testing Users actions', () => {
     it('Should create an action to fetch users', () => {

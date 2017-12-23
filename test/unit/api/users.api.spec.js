@@ -1,6 +1,6 @@
 import nock from 'nock';
 
-import {fetchUsers} from '../users.api';
+import {fetchUsers} from '../../../src/api/users.api';
 
 describe('Testing API for random users', () => {
 
