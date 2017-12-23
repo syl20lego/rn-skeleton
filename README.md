@@ -12,9 +12,15 @@ React native skeleton project for
 * Storybook
 * Jest
 
-# Application 
+[If you are not interested in storybooks, you can user version 0.1](https://github.com/syl20lego/rn-skeleton/tree/release/0.1)
+
+## Application 
 ![Overview](./documentation/ScreenShot.png)
 * Inspired by Spencer Carli tutorial
+
+## Storybook
+
+![Storybook](./documentation/storybook.png)
 
 # Quick start
 
