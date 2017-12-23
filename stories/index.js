@@ -4,14 +4,14 @@ import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import CenterView from './CenterView';
-import Welcome from './Welcome';
+import CenterView from './helpers/centerview';
+import Welcome from './helpers/welcome';
 
-import Button from '../../src/components/button';
-import HomeScreen from '../../src/screens/home.screen/home.screen'
-import DetailsScreen from '../../src/screens/details.screen'
-import InfoScreen from '../../src/screens/info.screen'
-import SettingsScreen from '../../src/screens/settings.screen'
+import Button from '../src/components/button';
+import HomeScreen from '../src/screens/home.screen/home.screen'
+import DetailsScreen from '../src/screens/details.screen'
+import InfoScreen from '../src/screens/info.screen'
+import SettingsScreen from '../src/screens/settings.screen'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
