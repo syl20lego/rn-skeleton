@@ -62,7 +62,7 @@ storiesOf('Screens/Home Screen', module)
         <HomeScreen
             loading={false}
             refreshing={false}
-            list={[{displayName:'item1', email:'email1@example.com'}]}
+            list={[{displayName:'item1', email:'email1@example.com'},{displayName:'item2', email:'email2@example.com'}]}
             page={1}
             seed={1}
             error={null}
