@@ -521,6 +521,8 @@ Should we have redux integration testing instead ? Testing actions/reducers/saga
 
 [React Navigation with Redux Integration](https://reactnavigation.org/docs/guides/redux)
 
+[Storybook is a development environment for UI components](https://github.com/storybooks/storybook)
+
 ## Test
 
 [Jest Expect](https://facebook.github.io/jest/docs/en/expect.html#content)
