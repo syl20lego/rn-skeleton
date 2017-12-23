@@ -1,5 +1,7 @@
 # rn-skeleton
-I had some trouble finding example for integrating keys frameworks all together, it is easy to find on a specific topic but never how everything would work together. There are probably other ways to do this but feel free to leave comments or suggestions.
+I had some trouble finding example for integrating keys frameworks all together, 
+it is easy to find on a specific topic but never how everything would work together. 
+There are probably other ways to do this but feel free to leave comments or suggestions.
 
 React native skeleton project for
 * React Native
@@ -7,10 +9,22 @@ React native skeleton project for
 * Redux-Persist
 * React Navigation
 * Redux-Saga
+* Storybook
+* Jest
 
 # Application 
 ![Overview](./documentation/ScreenShot.png)
 * Inspired by Spencer Carli tutorial
+
+# Quick start
+
+```Bash
+git clone https://github.com/syl20lego/rn-skeleton.git
+cd rn-skeleton/
+npm install
+react-native run-ios
+react-native run-android
+```
 
 # Step by step installation guide
 
@@ -118,6 +132,10 @@ getstorybook
 
 ```
 yarn run storybook 
+```
+or 
+```
+npm run storybook
 ```
 
 # Architecture
@@ -379,8 +397,18 @@ probably better with the component.
 
 ## Storybook
 
+Storybook is a nice framework to visualize your component without having to run the full application. This is useful 
+for deep component inside your application that requires many steps to get to it. Therefore, it useful while developing your 
+component and also it has the advantage to promote decouple components and provide an easy way to test.
+
+You can access the storybook via the browser
 http://localhost:7007/
 
+By default storybook and stories are created under the same folder storybook, after cleaning up the old ios and android
+index files, I moved the stories under /test. This makes it easier to have all non production code under the same
+folder.
+
+I like to keep thing organized separately so you have one stories file per components. 
 
 ## Testing
 
