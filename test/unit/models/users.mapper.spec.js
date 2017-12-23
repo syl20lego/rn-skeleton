@@ -1,4 +1,4 @@
-import mapper from '../users.mapper';
+import mapper from '../../../src/models/users.mapper';
 
 describe('Testing Model mapper for users', () => {
     it('Return empty model when no data', () => {

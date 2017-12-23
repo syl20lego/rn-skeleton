@@ -2,7 +2,7 @@ import React from 'react';
 import {action} from "@storybook/addon-actions/dist/index";
 import {storiesOf} from "@storybook/react-native/dist/index";
 
-import HomeScreen from '../../src/screens/home.screen/home.screen'
+import HomeScreen from '../../../src/screens/home.screen/home.screen'
 
 storiesOf('Screens/Home Screen', module)
     .add('show loading state', () => (

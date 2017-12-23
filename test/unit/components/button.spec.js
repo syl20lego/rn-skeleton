@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform} from 'react-native';
 import {shallow} from 'enzyme';
 
-import Button from '../button';
+import Button from '../../../src/components/button';
 
 describe('Testing button component', () => {
 

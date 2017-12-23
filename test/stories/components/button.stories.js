@@ -3,7 +3,7 @@ import {action} from "@storybook/addon-actions/dist/index";
 import {storiesOf} from "@storybook/react-native/dist/index";
 import CenterView from '../helpers/centerview';
 
-import Button from '../../src/components/button';
+import Button from '../../../src/components/button';
 
 
 storiesOf('Components/Button', module)

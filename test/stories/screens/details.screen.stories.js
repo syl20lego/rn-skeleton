@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf} from "@storybook/react-native/dist/index";
 
-import DetailsScreen from '../../src/screens/details.screen'
+import DetailsScreen from '../../../src/screens/details.screen'
 
 storiesOf('Screens/Details Screen', module)
     .add('default', () => (

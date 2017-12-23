@@ -1,5 +1,5 @@
-import reducers from '../index'
-import * as types from '../../actions/type'
+import reducers from '../../../src/reducers/index'
+import * as types from '../../../src/actions/type'
 
 describe('Testing Users reducer', () => {
     describe('Testing FETCH_USERS', () => {
