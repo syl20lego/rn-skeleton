@@ -44,7 +44,7 @@ class HomeScreen extends Component {
     };
 
     renderFooter = () => {
-        if (this.props.loading)
+        if (!this.props.loading)
             return null;
 
         return (
