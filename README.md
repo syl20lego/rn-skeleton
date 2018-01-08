@@ -28,6 +28,7 @@ React native skeleton project for
 git clone https://github.com/syl20lego/rn-skeleton.git
 cd rn-skeleton/
 npm install
+npm start or npm run storybook
 react-native run-ios
 react-native run-android
 ```
