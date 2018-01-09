@@ -549,11 +549,11 @@ macOS Sierra
 Version 10.12.6
 
 npm --version
-5.5.1
+5.6.0
 
 node --version
-v6.11.3
+v8.6.0
 
 react-native --version
 react-native-cli: 2.0.1
-react-native: 0.50.4
+react-native: 0.52.0
