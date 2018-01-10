@@ -62,26 +62,46 @@ npm install
 ## Dependencies
 
 ### React Component
+
 ```Bash
 npm install --save prop-types
 ```
+```Bash
+yarn add prop-types
+```
 
 ### Redux,Persist,Saga
+
 ```Bash
 npm install --save react-redux redux redux-logger
 npm install --save redux-persist
 npm install --save redux-saga
 ```
+```Bash
+yarn add react-redux redux redux-logger
+yarn add redux-persist
+yarn add redux-saga
+```
 
 ### Navigation
+
 ```Bash
 npm install --save react-navigation
 ```
+```Bash
+yarn add react-navigation
+```
 
 ### Icons and Native Elements
+
 ```Bash
 npm install --save react-native-elements
 npm install --save react-native-vector-icons
+react-native link
+```
+```Bash
+yarn add react-native-elements
+yarn add react-native-vector-icons
 react-native link
 ```
 
@@ -91,7 +111,6 @@ react-native link
 ```
 ## Testing
 
-
 ```Bash
 npm install --save-dev jest babel-jest babel-preset-es2015 babel-preset-react react-test-renderer
 npm install --save-dev jest-cli
@@ -99,6 +118,24 @@ npm install --save-dev nock
 npm install --save-dev enzyme
 npm install --save-dev enzyme-adapter-react-16
 npm install --save-dev react-dom
+```
+```Bash
+yarn add --dev jest babel-jest babel-preset-es2015 babel-preset-react react-test-renderer
+yarn add --dev jest-cli
+yarn add --dev nock
+yarn add --dev enzyme
+yarn add --dev enzyme-adapter-react-16
+yarn add --dev react-dom
+```
+
+## StoryBook
+```Bash
+npm -g i @storybook/cli
+```
+
+```Bash
+getstorybook
+npm install
 ```
 
 ## Running Jest
@@ -110,40 +147,35 @@ npm install -g jest
 jest --watch
 ```
 
-## Runing Simulators
+## Running StoryBook
 
-### iOS
-```
-react-native run-ios
-```
-### Android
-```
-react-native run-android
-```
-Show RN options
-```
-adb shell input keyevent 82
-```
-Reload RN
-```
-adb shell input text "RR"
-```
-
-```
-npm -g i @storybook/cli
-```
-
-```
-getstorybook
-```
-
-```
+```Bash
 yarn run storybook 
 ```
 or 
-```
+```Bash
 npm run storybook
 ```
+
+## Runing Simulators
+
+### iOS
+```Bash
+react-native run-ios
+```
+### Android
+```Bash
+react-native run-android
+```
+Show RN options
+```Bash
+adb shell input keyevent 82
+```
+Reload RN
+```Bash
+adb shell input text "RR"
+```
+
 
 # Architecture
 
@@ -407,6 +439,25 @@ probably better with the component.
 Storybook is a nice framework to visualize your component without having to run the full application. This is useful 
 for deep component inside your application that requires many steps to get to it. Therefore, it useful while developing your 
 component and also it has the advantage to promote decouple components and provide an easy way to test.
+
+We don't need android and iOS index anymore since React Native 0.50.
+```Bash
+rm storybook/index.android.js 
+```
+```Bash
+rm storybook/index.ios.js 
+```
+
+Replace the index.js (under storybook) by the content of storybook.js (no need of the indirection)
+```Bash
+rm storybook/index.js 
+mv storybook/storybook.js storybook/index.js
+```
+
+Move the stories undes the test folder.
+```Bash
+mv storybook/stories test/
+```
 
 You can access the storybook via the browser
 http://localhost:7007/
