@@ -419,12 +419,49 @@ I like to keep thing organized separately so you have one stories file per compo
 
 ## Testing
 
+My preference is to have all test under the same directory structure (aka /test), this allow you to have the test separated by 
+their categories: unit, integration. Since integration tests might require more time/setup. I also consider storybooks
+as non production code and kept it under the /test folder. 
 
 ### Unit testing
 
+You need to configure JEST, setup file, ignore files
+
+`package.json`
+```
+ "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./__tests__/setup"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "./__tests__/setup"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)/"
+    ],
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
+  }
+```
+
+`__tests__/setup.js`
+
+In the setup, I use the following configuration
+
+```Javascript
+global.XMLHttpRequest = require("isomorphic-fetch");
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+Enzyme.configure({ adapter: new Adapter() });
+```
+
 Actions are really easy to test, you just need to ensure they provide the correct object.
 
-`actions/__tests__/users.actions.spec.js`
+`/test/unit/actions/users.actions.spec.js`
 
 ```Javascript
 it('Should create an action to fetch users', () => {
@@ -444,7 +481,7 @@ it('Should create an action to fetch users', () => {
 You can test javascript function, I like to use Nock for API testing
 [HTTP mocking and expectations library](https://github.com/node-nock/nock)
 
-`api/__tests__/users.api.spec.js`
+`/test/unit/api/users.api.spec.js`
 
 ```Javascript
 it('API works correctly to fetch users', (done) => {
@@ -472,7 +509,7 @@ it('API works correctly to fetch users', (done) => {
 Because the reducers are simply managing states, they are easy to test and you just need to ensure they are 
 creating the proper state given any actions
 
-`reducers/__tests__/users.reducers.spec.js`
+`/test/unit/reducers/users.reducers.spec.js`
 
 ```Javascript
 it('should return the initial state', () => {
