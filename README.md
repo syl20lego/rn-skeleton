@@ -132,6 +132,10 @@ yarn add --dev react-dom
 ```Bash
 npm -g i @storybook/cli
 ```
+```Bash
+yarn global add @storybook/cli
+```
+
 
 ```Bash
 getstorybook
@@ -202,14 +206,23 @@ Application is our own application component.
 `App.js`
 
 ```Javascript
-<Provider store={store}>
-    <PersistGate
-        loading={<ActivityIndicator/>}
-        onBeforeLift={onBeforeLift}
-        persistor={persistor}>
-        <Application/>
-    </PersistGate>
-</Provider>
+render() {
+        const {persistor, store} = Store;
+        const onBeforeLift = () => {
+            // take some action before the gate lifts
+        };
+        // persistor.purge();
+        return (
+            <Provider store={store}>
+                <PersistGate
+                    loading={<ActivityIndicator/>}
+                    onBeforeLift={onBeforeLift}
+                    persistor={persistor}>
+                    <Application/>
+                </PersistGate>
+            </Provider>
+        );
+    }
 ```
 
 We setup the store
