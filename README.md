@@ -12,7 +12,7 @@ React native skeleton project for
 * Storybook
 * Jest
 
-[If you are not interested in storybooks, you can user version 0.1](https://github.com/syl20lego/rn-skeleton/tree/release/0.1)
+[If you are not interested in storybooks, you can use version 0.1](https://github.com/syl20lego/rn-skeleton/tree/release/0.1)
 
 ## Application 
 ![Overview](./documentation/ScreenShot.png)
