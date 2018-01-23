@@ -1,9 +1,9 @@
 # rn-skeleton
-I had some trouble finding example for integrating keys frameworks all together, 
-it is easy to find on a specific topic but never how everything would work together. 
-There are probably other ways to do this but feel free to leave comments or suggestions.
+Having trouble finding examples for integrating keys frameworks such has redux with saga and navigation on React Native. 
+It is easy to find example on a specific topic butI could never find everything that would work together. 
+I did some adaptation to my style and there are probably other ways, if you like or dislike, feel free to leave comments or suggestions.
 
-React native skeleton project for
+React native skeleton project for:
 * React Native
 * React-Redux
 * Redux-Persist
@@ -657,4 +657,4 @@ v8.6.0
 
 react-native --version
 react-native-cli: 2.0.1
-react-native: 0.52.0
+react-native: 0.52.1
