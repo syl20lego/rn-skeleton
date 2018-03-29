@@ -61,7 +61,7 @@ class HomeScreen extends Component {
                 <FlatList
                     data={this.props.list}
                     renderItem={({item}) => this.renderItem(item)}
-                    keyExtractor={(item, index) => index}
+                    keyExtractor={(item, index) => item.email}
                     ItemSeparatorComponent={this.renderSeparator}
                     ListHeaderComponent={this.renderHeader}
                     ListFooterComponent={this.renderFooter}

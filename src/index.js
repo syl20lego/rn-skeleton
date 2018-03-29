@@ -2,9 +2,21 @@ import React, {Component} from 'react';
 import {BackHandler} from 'react-native';
 import {connect} from 'react-redux';
 import {addNavigationHelpers, NavigationActions} from 'react-navigation';
+import {
+    createReduxBoundAddListener,
+    createReactNavigationReduxMiddleware,
+  } from 'react-navigation-redux-helpers';
 
 import Navigator from './routes';
 
+// Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
+const middleware = createReactNavigationReduxMiddleware(
+    "root",
+    state => state.nav,
+  );
+  const addListener = createReduxBoundAddListener("root");
+
+  
 class AppWithNavigation extends Component {
 
     componentDidMount() {
@@ -34,7 +46,8 @@ class AppWithNavigation extends Component {
                 navigation={
                     addNavigationHelpers({
                         dispatch,
-                        state: navigator
+                        state: navigator,
+                        addListener
                     })
                 }
             />

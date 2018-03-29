@@ -11,7 +11,7 @@ export default class App extends Component {
         const onBeforeLift = () => {
             // take some action before the gate lifts
         };
-        // persistor.purge();
+        persistor.purge();
         return (
             <Provider store={store}>
                 <PersistGate

@@ -1,6 +1,6 @@
 # rn-skeleton
 Having trouble finding examples for integrating keys frameworks such has redux with saga and navigation on React Native. 
-It is easy to find example on a specific topic butI could never find everything that would work together. 
+It is easy to find example on a specific topic but I could never find everything that would work together. 
 I did some adaptation to my style and there are probably other ways, if you like or dislike, feel free to leave comments or suggestions.
 
 React native skeleton project for:
@@ -35,7 +35,7 @@ react-native run-android
 
 # Step by step installation guide
 
-I'll try to show all the commands you need to run to create your own project if you don't want to clone this one.
+I'll try to show all the commands you need to run to create your own project in case you don't want to clone this project.
 
 [Building Projects with Native Code](https://facebook.github.io/react-native/docs/getting-started.html)
 
@@ -87,9 +87,11 @@ yarn add redux-saga
 
 ```Bash
 npm install --save react-navigation
+npm install --save react-navigation-redux-helpers
 ```
 ```Bash
 yarn add react-navigation
+yarn add react-navigation-redux-helpers
 ```
 
 ### Icons and Native Elements
@@ -183,18 +185,18 @@ adb shell input text "RR"
 
 # Architecture
 
-From the application creation there are few choice to be made, I'll try to explains my decisions or sometime just use the defacto.
+From the application creation there are few choice you will have to make, I'll try to explains my decisions but sometime I'll just use the defacto.
 
 ## Expo or Native Code
-Right from the start you have to make one big decision, should I use Expo or go Native Code. The key to architecture is sometime delay the decision until it is important. Commiting to Expo right now seems to be a big steps and I want to decide which components to include along the way. I also want to be able to use my own native component, I could always eject with Expo but would be left with a big dependencies. Since this is a learning journey, I decided to go the native code way.
+Right from the start you have to make one big decision, either you use Expo or go Native Code way. The key to architecture is sometime it is better to delay the decision until it is important. Commiting to Expo right now seems to be a big steps and I wanted to decide which components to include along the way. I also wanted to be able to use my own native component in the future, I could always eject with Expo but would be leave with a big dependency. Since this is a learning journey, I decided to go the native code way.
 
 
 
 # Tutorial
 
-React Native doesn't allow you to have anything other then alphanum chararcters in your project name, I name my repo rn-skeleton so I opt for RNskeleton and change the directory name when creating the project [Init](##Init).
+React Native doesn't allow you to have anything other then alphanum chararcters in your project name, I named my repo rn-skeleton so I opt for RNskeleton and changed the directory name when creating the project [Init](##Init).
 
-Finaly this is the first version of react native 0.50 that doesn't generate the index.android.js and index.ios.js. We can start editing the App.js directly. I want my files to be under /src rather then /app since there is alreay an app.json and an App.js.
+Finaly this is the first version of react native 0.50 (0.54 now) that doesn't generate the index.android.js and index.ios.js. We can start editing the App.js directly. I want my files to be under /src rather then /app since there is alreay an app.json and an App.js.
 
 ## Redux, Persist, Saga and the redux store
 
@@ -646,8 +648,8 @@ Should we have redux integration testing instead ? Testing actions/reducers/saga
 
 # Environment
 
-macOS Sierra
-Version 10.12.6
+macOS High Sierra
+Version 10.13.3
 
 npm --version
 5.6.0
@@ -657,4 +659,4 @@ v8.6.0
 
 react-native --version
 react-native-cli: 2.0.1
-react-native: 0.52.1
+react-native: 0.54.4
