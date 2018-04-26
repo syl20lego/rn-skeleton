@@ -652,7 +652,7 @@ macOS High Sierra
 Version 10.13.3
 
 npm --version
-5.6.0
+6.0.0
 
 node --version
 v8.6.0

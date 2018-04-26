@@ -51,6 +51,7 @@ buck-out/
 */fastlane/Preview.html
 */fastlane/screenshots
 
+<<<<<<< ours
 
 # Jest
 # Coverage
@@ -59,3 +60,7 @@ coverage/
 
 # Visual Studio Code
 .vscode/
+=======
+# Bundle artifact
+*.jsbundle
+>>>>>>> theirs
